@@ -21,29 +21,12 @@ class Form extends React.Component {
 	}
 
 	handlerSetContact = (e) => {
-		switch(e.target.id) {
-			case 'fname-input':
-				this.setState({
-					firstName: e.target.value
-				})
-				break
-			case 'lname-input':
-				this.setState({
-					lastName: e.target.value
-				})
-				break
-			case 'tel-input':
-				this.setState({
-					tel: +e.target.value
-				})
-				break
-			default:
-				this.setState({
-					firstName: '',
-					lastName: '',
-					tel: null
-				})
-		}
+		const { value, name } = e.target;
+
+		this.setState({
+			...this.state,
+			[name]: value,
+		});
 	}
 
 	handlerCleaner = () => {
@@ -61,7 +44,7 @@ class Form extends React.Component {
 
 	hendlerAddContact = () => {
 		if (this.state.firstName && this.state.lastName && this.state.tel) {
-			this.props.getNewContact(this.state.firstName, this.state.lastName, this.state.tel);
+			this.props.getNewContact(this.state);
 
 			this.handlerCleaner();
 			this.handleAddContackSwitcher();
@@ -78,9 +61,9 @@ class Form extends React.Component {
 			<section className='add-contact_section'>
 				<button id='addContactBtn' className='add-contact_btn' onClick={this.handleAddContackSwitcher}>{this.state.buttonContent}</button>
 				<div id='addContact' className='add-contact_block'>
-					<input id='fname-input' type='text' placeholder='First name' className='add-contact_input' onChange={this.handlerSetContact} />
-					<input id='lname-input' type='text' placeholder='Last name' className='add-contact_input' onChange={this.handlerSetContact} />
-					<input id='tel-input' type='text' placeholder='Tel' className='add-contact_input' onChange={this.handlerSetContact} />
+					<input id='fname-input' type='text' name='firstName' placeholder='First name' className='add-contact_input' onChange={this.handlerSetContact} />
+					<input id='lname-input' type='text' name='lastName' placeholder='Last name' className='add-contact_input' onChange={this.handlerSetContact} />
+					<input id='tel-input' type='text' name='tel' placeholder='Tel' className='add-contact_input' onChange={this.handlerSetContact} />
 					<button className='form-btn confirm-btn' onClick={this.hendlerAddContact}>Add contact</button>
 					<button className='form-btn cencel-btn' onClick={this.handlerCancelContact}>Cancel</button>
 				</div>

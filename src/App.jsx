@@ -16,9 +16,9 @@ class App extends React.Component {
     }
   }
 
-  getNewContact = (fname, lname, tel) => {
+  getNewContact = (contactDataObj) => {
     this.setState({
-      contacts: [...this.state.contacts, {id: Math.random(), firstName: fname, lastName: lname, tel: tel}]
+      contacts: [...this.state.contacts, {id: Math.random(), ...contactDataObj}]
     })
   }
 

@@ -1,0 +1,24 @@
+.contacts_item {
+	display: flex;
+	padding: 3px;
+	border-bottom: 1px solid #000;
+}
+
+.contacts_item:hover {
+	background-color: #ccc;
+}
+
+.contact-cell {
+	width: 33%;
+}
+
+.contacts-item_close-btn {
+	background-color: transparent;
+	border: 1px solid #000;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.contacts-item_close-btn:hover {
+	color: #ff0000;
+}
