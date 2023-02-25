@@ -1,0 +1,29 @@
+.add-contact_btn {
+	width: 25px;
+	height: 25px;
+	margin-bottom: 10px;
+}
+
+.add-contact_block {
+	display: none;
+}
+
+.add-contact_block-active {
+	display: block;
+}
+
+.add-contact_input {
+	padding: 5px 10px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.form-btn {
+	display: block;
+	width: 100px;
+	padding: 5px 10px;
+}
+
+.confirm-btn {
+	margin-bottom: 5px;
+}
